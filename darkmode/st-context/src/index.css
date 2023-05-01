@@ -1,0 +1,9 @@
+/* Light mode styles */
+.text-primary {
+  color: blue;
+}
+
+/* Dark mode styles */
+.dark .text-primary {
+  color: red;
+}
