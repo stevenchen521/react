@@ -1,19 +1,34 @@
-import { useState } from 'react';
+import { useMemo, useState, useEffect } from "react";
 
 const App = () => {
   const [number, setNumber] = useState(0);
   const [dark, setDark] = useState(false);
-  const doubleNumber = slowFunction(number);
+  const doubleNumber = useMemo(() => {
+    return slowFunction(number);
+  }, [number]);
+
+  const themeStyles = useMemo(() => {
+    return {
+      backgroundColor: dark ? "black" : "white",
+      color: dark ? "white" : "black",
+    };
+  }, [dark]);
+
+  useEffect(() => {
+    console.log("theme changes");
+  }, [themeStyles]);
 
   return (
     <>
       <input
-        type='number'
+        type="number"
         value={number}
         onChange={(e) => setNumber(parseInt(e.target.value))}
       />
-      <button>Change Theme</button>
-      <div>{doubleNumber}</div>
+      <button onClick={() => setDark((preDark) => !preDark)}>
+        Change Theme
+      </button>
+      <div style={themeStyles}>{doubleNumber}</div>
     </>
   );
 };
@@ -21,11 +36,7 @@ const App = () => {
 export default App;
 
 function slowFunction(num) {
-  for (let i = 0; i <= 999999999; i++) {}
+  for (let i = 0; i <= 99999999; i++) {}
 
   return num * 2;
-  // setTimeout(() => {
-  //   console.log('Calling slow Function');
-  //   return num * 2;
-  // }, 1000);
 }
