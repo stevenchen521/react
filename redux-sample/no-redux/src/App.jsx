@@ -1,10 +1,10 @@
 // App.jsx
-import { useState } from 'react';
-import PostsList from './PostsList';
+import { useState } from "react";
+import PostsList from "./PostsList";
 
 const App = () => {
-  const [title, setTitle] = useState('');
-  const [content, setContent] = useState('');
+  const [title, setTitle] = useState("");
+  const [content, setContent] = useState("");
   const [posts, setPosts] = useState([]);
 
   const addPost = (newPost) => {
@@ -43,8 +43,8 @@ const App = () => {
     };
 
     addPost(newPost);
-    setTitle('');
-    setContent('');
+    setTitle("");
+    setContent("");
   };
 
   return (
@@ -54,7 +54,7 @@ const App = () => {
         <label>
           Title:
           <input
-            type='text'
+            type="text"
             value={title}
             onChange={(e) => setTitle(e.target.value)}
           />
@@ -66,7 +66,7 @@ const App = () => {
             onChange={(e) => setContent(e.target.value)}
           ></textarea>
         </label>
-        <button type='submit'>Add Post</button>
+        <button type="submit">Add Post</button>
       </form>
       <PostsList posts={posts} onLike={handleLike} onComment={handleComment} />
     </div>
