@@ -1,5 +1,5 @@
+/* eslint-disable react/prop-types */
 // Post.jsx
-import React from 'react';
 import LikeButton from './LikeButton';
 import CommentBox from './CommentBox';
 

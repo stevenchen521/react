@@ -1,5 +1,5 @@
+/* eslint-disable react/prop-types */
 // LikeButton.js
-import React from 'react';
 import { useDispatch } from 'react-redux';
 
 const LikeButton = ({ postId }) => {

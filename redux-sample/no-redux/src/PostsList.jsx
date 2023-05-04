@@ -1,5 +1,5 @@
+/* eslint-disable react/prop-types */
 // PostsList.js
-import React from 'react';
 import Post from './Post';
 
 const PostsList = ({ posts, onLike, onComment }) => {
