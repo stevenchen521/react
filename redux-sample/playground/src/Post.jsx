@@ -1,29 +1,37 @@
-import { useState } from "react";
+/* eslint-disable react/prop-types */
+import { useState } from 'react';
 
-const Post = ({ id, title, content, likes, comments, addComment }) => {
-  const [comment, setComment] = useState("");
+const Post = ({ addComment, onLike, post }) => {
+  const [comment, setComment] = useState('');
 
   return (
     <>
-      <h3>{title}</h3>
-      <p>{content}</p>
-      <p>Likes: {likes}</p>
-      <button>Like</button>
+      <h3>{post.title}</h3>
+      <p>{post.content}</p>
+      <p>Likes: {post.likes}</p>
+      <button
+        onClick={() => {
+          onLike(post.id);
+        }}
+      >
+        Like
+      </button>
       <h4>Comments</h4>
       <ul>
-        {comments.map((comment, index) => {
+        {post.comments.map((comment, index) => {
           return <li key={index}>{comment}</li>;
         })}
       </ul>
       <input
-        type="text"
-        placeholder="Write a comment"
+        type='text'
+        placeholder='Write a comment'
         value={comment}
         onChange={(e) => setComment(e.target.value)}
       ></input>
       <button
-        onClick={(e) => {
-          addComment(id, comment);
+        onClick={() => {
+          addComment(post.id, comment);
+          setComment('');
         }}
       >
         Submit

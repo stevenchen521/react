@@ -3,7 +3,6 @@ import { useTheme } from './ThemeContext';
 
 const App = () => {
   const { isDarkMode, setIsDarkMode } = useTheme();
-
   const toggleDarkMode = () => {
     setIsDarkMode(!isDarkMode);
   };

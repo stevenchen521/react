@@ -1,18 +1,9 @@
-import React from "react";
-import Post from "./Post";
+import Post from './Post';
 
-const PostList = ({ posts, addComment }) => {
+const PostList = ({ posts, addComment, onLike }) => {
   return posts.map((post) => {
     return (
-      <Post
-        key={post.id}
-        id={post.id}
-        title={post.title}
-        content={post.content}
-        likes={post.likes}
-        comments={post.comments}
-        addComment={addComment}
-      />
+      <Post key={post.id} post={post} addComment={addComment} onLike={onLike} />
     );
   });
 };
