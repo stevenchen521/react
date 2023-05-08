@@ -1,0 +1,38 @@
+/* Global styles */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.buttons {
+  display: flex;
+  max-height: none;
+  overflow: hidden;
+  transition: max-height 0.5s ease-in-out;
+}
+
+.btn {
+  margin-right: 10px;
+}
+
+.mobile-menu-btn {
+  display: none;
+}
+
+/* Mobile styles */
+@media (max-width: 600px) {
+  .buttons {
+    display: flex;
+    flex-direction: column;
+    max-height: 0;
+  }
+
+  .buttons.open {
+    max-height: 200px; /* Adjust this value based on the height of your buttons and their container */
+  }
+
+  .mobile-menu-btn {
+    display: block;
+  }
+}

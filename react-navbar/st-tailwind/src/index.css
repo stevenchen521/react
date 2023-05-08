@@ -1,0 +1,20 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  /* border: 2px solid red; */
+}
+
+.nav-li {
+  @apply hover:bg-[#777];
+}
+
+.active {
+  background-color: #555;
+}
